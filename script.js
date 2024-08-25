@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
         heart.classList.add('heart-fall');
         heart.style.left = `${Math.random() * 100}vw`;
         heart.style.animationDuration = `${Math.random() * 8 + 8}s`;
-        heart.style.top = `${-Math.random() * 100}px`; // Начальная позиция выше экрана
         document.body.appendChild(heart);
         
         // Удаление сердца после завершения анимации
