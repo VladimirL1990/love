@@ -24,6 +24,8 @@ html,body{
 	-ms-text-size-adjust: 100%;
 	-moz-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
+	overflow: hidden;
+	
 }
 input,button,textarea{font-family:inherit;}
 
@@ -126,16 +128,16 @@ input::-ms-clear{display: none;}
 
 /* Падающие сердца */
 @keyframes fallingHearts {
-	0% {
-			transform: translateY(-100vh) rotate(0deg);
-	}
-	100% {
-			transform: translateY(100vh) rotate(360deg);
-	}
+	 0% {
+        transform: translateY(-10vh) rotate(0deg); /* Начинаем чуть выше экрана */
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg); /* Заканчиваем чуть ниже экрана */
+    }
 }
 
 .heart-fall {
-	position: absolute;
+	position: fixed;
 	width: 50px;
 	height: 50px;
 	background-image: url('jpeg/2402086.svg');
