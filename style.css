@@ -1,0 +1,156 @@
+
+/*Обнуление*/
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+*,*:before,*:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+
+nav,footer,header,aside{display: block;}
+
+html,body{
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+input,button,textarea{font-family:inherit;}
+
+input::-ms-clear{display: none;}
+
+
+
+/* Основной контейнер */
+.container {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	overflow: hidden; /* Чтобы ничего не выходило за пределы контейнера */
+	background: url('jpeg/2402086.svg') no-repeat center center;
+	background-size: cover; /* Растягивает изображение на весь контейнер */
+	animation: heartbeatBackground 3s infinite; /* Анимация биения для фона */
+}
+
+/* Псевдоэлемент для наложения цвета */
+.container::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(255, 0, 0, 0.5); /* Полупрозрачный красный цвет */
+	pointer-events: none; /* Чтобы наложение не мешало взаимодействию с другими элементами */
+	animation: heartbeatBackground 10s infinite; /* Анимация для фонового изображения */
+}
+
+/* Стили для текста */
+#animated-text {
+	font-size: 5rem;
+	color: #ff0066;
+	overflow: hidden; /* Обрезает текст, чтобы он не выходил за пределы контейнера */
+	white-space: nowrap; /* Запрещает перенос текста */
+	border-right: 3px solid #ff0066; /* Курсор */
+	animation: typing 5s steps(40, end) infinite, blink-caret 0.75s step-end infinite;
+	opacity: 0;
+	transform: scale(0.5);
+	animation: fadeInScale 3s forwards, typing 5s steps(40, end) infinite;
+}
+
+/* Анимации для текста */
+@keyframes fadeInScale {
+	from {
+			opacity: 0;
+			transform: scale(0.5);
+	}
+	to {
+			opacity: 1;
+			transform: scale(1);
+	}
+}
+
+@keyframes typing {
+	from {
+			width: 0;
+	}
+	to {
+			width: 100%;
+	}
+}
+
+@keyframes blink-caret {
+	from, to {
+			border-color: transparent;
+	}
+	50% {
+			border-color: #ff0066;
+	}
+}
+
+/* Стили для сердца */
+#heart {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	top: 10%;
+	left: 50%;
+	transform: translateX(-50%);
+	animation: heartbeat 1.5s infinite;
+	transition: transform 0.5s ease;
+}
+
+/* Анимация для сердца */
+@keyframes heartbeat {
+	0%, 100% {
+			transform: scale(1);
+	}
+	50% {
+			transform: scale(1.2);
+	}
+}
+
+/* Падающие сердца */
+@keyframes fallingHearts {
+	0% {
+			transform: translateY(-100vh) rotate(0deg);
+	}
+	100% {
+			transform: translateY(100vh) rotate(360deg);
+	}
+}
+
+.heart-fall {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	background-image: url('jpeg/2402086.svg');
+	background-size: cover;
+	opacity: 0.8;
+	animation: fallingHearts 5s linear infinite;
+	pointer-events: none;
+}
+
+/* Анимация фона */
+@keyframes heartbeatBackground {
+	0%, 100% {
+			background-size: 100%;
+	}
+	50% {
+			background-size: 120%;
+	}
+}
