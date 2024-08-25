@@ -39,18 +39,19 @@ body {
 
 /* Основной контейнер */
 .container {
-	position: relative;
-	width: 100%;
-	height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	overflow: hidden; /* Чтобы ничего не выходило за пределы контейнера */
-	background: url('jpeg/2402086.svg') no-repeat center center;
-	background-size: cover; /* Растягивает изображение на весь контейнер */
-	animation: heartbeatBackground 3s infinite; /* Анимация биения для фона */
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Высота контейнера равна высоте экрана */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden; /* Чтобы ничего не выходило за пределы контейнера */
+    background: url('jpeg/2402086.svg') no-repeat center center;
+    background-size: cover; /* Растягивает изображение на весь контейнер */
+    animation: heartbeatBackground 3s infinite; /* Анимация биения для фона */
 }
+
 
 /* Псевдоэлемент для наложения цвета */
 .container::before {
@@ -149,8 +150,9 @@ body {
     opacity: 0.8;
     animation: fallingHearts 5s linear infinite;
     pointer-events: none;
-    top: -50px; /* Начальная позиция вне экрана */
+    top: -50px; /* Начальная позиция выше экрана */
 }
+
 
 
 /* Анимация фона */
